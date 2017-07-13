@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinRefreshTest"
+             x:Class="XamarinRefreshTest.MainPage">
+    <StackLayout>
+        <Button Text="click" Clicked="Button_Clicked"/>
+        <ListView x:Name="ListView" ItemsSource="{Binding Sales}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Source="time.jpg" HeightRequest="50" WidthRequest="50">
+                                    --><!--<Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AddQuantityCommand, Source={x:Reference Name=SalesPage}}" CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>--><!--
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding AddQuantityCommand} " CommandParameter="{Binding .}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Grid.Column="1" Text="{Binding Quantity,Mode=TwoWay}" />
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>-->       
+                    <!--<ImageCell ImageSource="time.jpg" Detail="{Binding Quantity }"/>-->
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#eee"
+                        Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="time.jpg" HeightRequest="50" WidthRequest="50" >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding AddQuantityCommand} " CommandParameter="{Binding .}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="{Binding Quantity}"
+                                TextColor="#f35e20" />
+                                <Label Text="{Binding Quantity}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
